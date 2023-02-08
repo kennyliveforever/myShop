@@ -7,25 +7,29 @@ export default function Content() {
             <div className={'content-wrap'}>
                 <div className={'sort-flex'}>
                     <div className={'sort'} id={'sort-first'}>
-                        <form>
+                        <div className={'sort-by-label'}>SORT BY</div>
+                        <div className={'select-box'} id={'arrow-first'}>
                             <select className={'sort-menu'} id={'sort-menu-first'}>
                                 <option>Useless first</option>
                             </select>
-                        </form>
+                        </div>
                     </div>
                     <div className={'sort'} id={'sort-second'}>
-                        <form>
+                        <div className={'select-box'} id={'arrow-second'}>
                             <select className={'sort-menu'} id={'sort-menu-second'}>
                                 <option>Condition</option>
                             </select>
-                        </form>
+                        </div>
                     </div>
                     <div className={'sort'} id={'sort-third'}>
-                        <form>
+                        <div className={'select-box'} id={'arrow-third'}>
                             <select className={'sort-menu'} id={'sort-menu-third'}>
-                                <option>Useless first</option>
+                                <div>dsd</div>
+                                <option>Delivery options</option>
+                                <option>Delivery options</option>
+                                <option>Delivery options</option>
                             </select>
-                        </form>
+                        </div>
                     </div>
                     <div className={'category-flex'}>
                         <span className={'content-category'}>Show all</span>
@@ -33,9 +37,27 @@ export default function Content() {
                         <span className={'content-category'}>Buy now</span>
                     </div>
                     <div className={'view-flex'}>
-                        <div className={'icon-list'}></div>
-                        <div className={'icon-grid'}></div>
+                        <div className={'view-box-list'}>
+                            <div className={'icon-list'}></div>
+                        </div>
+                        <div className={'view-box-grid'}>
+                            <div className={'icon-grid'}></div>
+                        </div>
                     </div>
+                </div>
+                <div className={'items-grid'}>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
+                    <div className={'card'}></div>
                 </div>
             </div>
         </>
