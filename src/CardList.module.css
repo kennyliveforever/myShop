@@ -1,0 +1,146 @@
+@import "Filters.css";
+
+.items-grid {
+    position: relative;
+    margin-left: 13px;
+    margin-right: 13px;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card {
+    height: 230px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 3px;
+}
+
+.card:hover {
+    margin-left: 0px;
+    height: 227px;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2), 0px 4px 8px rgba(92, 107, 192, 0.2);
+    border-radius: 8px;
+}
+
+.card-image {
+    width: 227px;
+    height: 224px;
+    background: url("../public/Image.png");
+}
+
+.descWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-description {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.0275em;
+    color: #19191D;
+    text-align: left;
+}
+
+.card-price {
+    width: 227px;
+    height: 36px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.card-info {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.018em;
+    color: #787885;
+    text-align: left;
+}
+
+.card-rate-box {
+    width: 122px;
+    height: 32px;
+    justify-items: center;
+}
+
+.stars-flex {
+    display: flex;
+    position: relative;
+    gap: 4px;
+    align-items: center;
+}
+
+.star {
+    width: 12px;
+    height: 11px;
+    background: url("../public/Vector.png");
+}
+
+.card-ratingCount {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: right;
+    letter-spacing: 0.018em;
+    color: #2264D1;
+}
+
+.card-cart-button {
+    width: 88px;
+    height: 32px;
+    border: 1px solid #9DC2FF;
+    border-radius: 4px;
+}
+
+.card-cart-icon {
+    width: 16px;
+    height: 16px;
+    background: url("../public/shopping-cart-96-16.png");
+    background-size: cover;
+}
+
+.card-cart-button-label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: right;
+    letter-spacing: 0.018em;
+    color: #2264D1;
+}
+
+.view-box-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 36px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px rgba(27, 78, 163, 0.24), 0px 2px 4px rgba(41, 121, 255, 0.24);
+}
+
+.view-box-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    width: 68px;
+    height: 36px;
+}

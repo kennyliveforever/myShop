@@ -1,7 +1,8 @@
 import React from "react";
 import './Header.css'
+import {log} from "util";
 
-export default function Header() {
+export default function Header(props: any) {
     return (
         <>
             <header className={'header-wrapper'}>
@@ -9,7 +10,7 @@ export default function Header() {
                 <div className={'header-search'}>
                     <div className={'search-lens'}></div>
                     <form>
-                        <input className={'search-input'} type={'text'} placeholder={'Search...'}></input>
+                        <input className={'search-input'} type={'text'} placeholder={'Search...'} onChange = { e => props.searchFunc(e.target.value)}></input>
                     </form>
                     <div className={'search-close'}></div>
                 </div>

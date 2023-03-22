@@ -8,3 +8,11 @@
   gap: 16px;
   justify-content: space-between;
 }
+
+.filters-content-flex-wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 1492px;
+  left: calc(50% - 1492px/2);
+}
