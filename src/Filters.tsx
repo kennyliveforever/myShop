@@ -60,25 +60,25 @@ export default function Filters(props: any) {
                         </div>
                         <div className={'check-item'}>
                             <div className={'check-box'}>
-                                <div className={'check-box-border'}></div>
+                                <div className={'check-box-border'}/>
                             </div>
                             <div className={'check-label'}>Recommended</div>
                         </div>
                         <div className={'check-item'}>
                             <div className={'check-box'}>
-                                <div className={'check-box-border'}></div>
+                                <div className={'check-box-border'}/>
                             </div>
                             <div className={'check-label'}>Recommended</div>
                         </div>
                         <div className={'check-item'}>
                             <div className={'check-box'}>
-                                <div className={'check-box-border'}></div>
+                                <div className={'check-box-border'}/>
                             </div>
                             <div className={'check-label'}>Recommended</div>
                         </div>
                         <div className={'check-item'}>
                             <div className={'check-box'}>
-                                <div className={'check-box-border'}></div>
+                                <div className={'check-box-border'}/>
                             </div>
                             <div className={'check-label'}>Recommended</div>
                         </div>
@@ -88,8 +88,6 @@ export default function Filters(props: any) {
                     <div className={'filter-title'}>Expanded filters</div>
                     <div className={'filter-arrow'}
                          onClick={() => {styleState ? setStyleState(false) : setStyleState(true)}}/>
-
-
                 </div>
             </div>
         </>

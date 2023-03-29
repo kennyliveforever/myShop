@@ -1,0 +1,35 @@
+.modal-background {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(1, 1, 1, 0.5);
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-main {
+    position: fixed;
+    height: 70%;
+    width: 60%;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.modal-fields-flex {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 40%;
+}
+
+span {
+    text-align: left;
+}
+
+

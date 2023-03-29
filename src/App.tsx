@@ -5,10 +5,9 @@ import CategoriesBar from "./CategoriesBar";
 import Content from "./Content";
 import Filters from "./Filters";
 import Footer from "./Footer";
-import sortPrice from "./Content"
-import styleGrid from "./Card.module.css";
-import {it} from "node:test";
-
+import Register from "./Register";
+import {json} from "stream/consumers";
+import Cart from "./Cart";
 
 function App() {
 
@@ -24,6 +23,9 @@ function App() {
     const [sortPrice, setSortPrice] = useState('')
     const [filter, setFilter] = useState(false)
     const [text, setText] = useState('')
+    const [textArr, setTextArr]: [Array<string>, Function] = useState([])
+
+    let regex: RegExp = new RegExp(`${text}`, 'i')
 
     useEffect((() => {
             fetch(category)
@@ -40,40 +42,100 @@ function App() {
 
                     if (sortPrice === 'low') {
                         setItems(result.sort((a: Item, b: Item) => a.price - b.price))
-                        console.log('Отсортировано по цене')
                     } else if (sortPrice === 'high') {
                         setItems(result.sort((a: Item, b: Item) => b.price - a.price))
-                        console.log('Отсортировано по цене')
                     } else {
                         setItems(result)
-                        console.log("Загружен список")
+                    }
+
+                    if (text.includes(' ')) {
+                        setTextArr(text.split(' '))
+                        console.log(textArr)
+                        console.log(text)
+                        // for (let i of textArr) {
+                        //     if (i.length > 0 && i !== ' ') {
+                        //         regex = new RegExp(`${i}`, 'i')
+                        //         if (text !== '' && filter) {
+                        //             setItems(result.filter((i: Item) => regex.test(i.title)).filter((item: Item) => item.filter == 1))
+                        //         } else if (text !== '' && !filter) {
+                        //             setItems(result.filter((i: Item) => regex.test(i.title)))
+                        //         } else if (text == '' && filter) {
+                        //             setItems(result.filter((item: Item) => item.filter == 1))
+                        //         }
+                        //     }
+                        // }
+                        regex = new RegExp(`(${textArr[0]})(${textArr[1]})`, 'i')
+                    }
+
+                    if (text !== '' && filter) {
+                        setItems(result.filter((i: Item) => regex.test(i.title)).filter((item: Item) => item.filter == 1))
+                    } else if (text !== '' && !filter) {
+                        setItems(result.filter((i: Item) => regex.test(i.title)))
+                    } else if (text == '' && filter) {
+                        setItems(result.filter((item: Item) => item.filter == 1))
                     }
                 })
-    }) as () => Function, [category, sortPrice, filter, text])
+    }) as () => Function, [category, sortPrice, text, filter, filter, items.length])
 
-    // useEffect((() => {
-    //     if (filter == true) {
-    //         setItems(items.filter((item: Item) => item.filter == 1))
-    //         console.log("Отфильтровано по фильтру")
-    //     }
-    // }) as () => Function, [filter, items.length, text])
+    const [registerModalState, setRegisterModalState] = useState(false)
+    const [registration, setRegistration] = useState(true)
 
     useEffect((() => {
-        if (text !== '') {
-            // @ts-ignore
-            setItems(items.filter((i: Item) => i.title.includes(text)))
-            console.log("Отфильтровано по поиску")
+        if(registration == true) {
+            // fetch('https://fakestoreapi.com/users',{
+            //     method:"POST",
+            //     body:JSON.stringify(
+            //         {
+            //             email:'kennyliveforever@gmail.com',
+            //             username:'Kennyliveforever',
+            //             password:'qwerty',
+            //             name:{
+            //                 firstname:'Kenny',
+            //                 lastname:'Mccormick'
+            //             },
+            //             address:{
+            //                 city:'Gomel',
+            //                 street:'Krestianskaya',
+            //                 number:32,
+            //                 zipcode:'420017',
+            //                 geolocation:{
+            //                     lat:'-50.3159',
+            //                     long:'120.1496'
+            //                 }
+            //             },
+            //             phone:'+375332523322'
+            //         }
+            //     )
+            // })
+            //     .then(res=>res.json())
+            //     .then(json=> {
+            //         console.log(json)
+            //     })
         }
-    }) as () => Function, [text, items.length])
+        setRegistration(false)
+    }) as () => Function, [registration])
 
-  return (
+    interface CartInt {
+        products: Array<Object>
+    }
+
+    let cartObj = {
+
+    }
+
+    const [cartModal, setCartModal] = useState(false)
+    const [cart, setCart] = useState([])
+
+    return (
     <div className="App">
+        {/*<Cart list={cart}/>*/}
         <div className={'main-wpaper'}>
+            {registerModalState ? <Register setReg = {setRegistration}/> : null}
             <Header searchFunc={setText}/>
             <CategoriesBar handler={setCategory}/>
             <div className={'filters-content-flex-wrap'}>
                 <Filters filterFunc={setFilter} filterState={filter}/>
-                <Content loaded={items} sort={setSortPrice} currentSort={sortPrice}/>
+                <Content loaded={items} sort={setSortPrice} currentSort={sortPrice} text={text} reg={regex} cart={cart}/>
             </div>
             <Footer/>
         </div>
