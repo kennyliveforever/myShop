@@ -13,7 +13,12 @@ export default function Content(props:any) {
 
         return (
             <>
-                <div className={style.card} id={props.prodID} onClick={(e) => console.log(e.currentTarget.id)}>
+                <div className={style.card} id={props.prodID} onClick={(e) => {
+                    // @ts-ignore
+                    if (e.target.className.includes('button')) {
+                        console.log('ok')
+                    }
+                }}>
                     <div className={style['card-image']} style={{background: 'URL(' + `${props.image}` + ')',
                         backgroundSize: 'contain',
                         backgroundPosition: 'center',
